@@ -6,6 +6,16 @@ versioning follows [SemVer](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-05-02
+
+### Changed
+
+- `PhoneResult.IsReachable` typed `*bool` (was `interface{}`). postio-api
+  1.0.3 aligned the spec with the runtime — HLR returns boolean.
+- `PhoneResult` nullable fields drop `omitempty`. The runtime now always
+  emits explicit nulls for every field, so the SDK round-trips without
+  silently dropping fields.
+
 ## [0.1.0] — 2026-05-02
 
 Initial release. First Postio Go SDK.
@@ -36,5 +46,6 @@ Initial release. First Postio Go SDK.
   `*string` because the live API returns booleans there even though
   the spec says string-only. Patched once the API/spec align.
 
-[Unreleased]: https://github.com/postio-uk/postio-go/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/postio-uk/postio-go/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/postio-uk/postio-go/releases/tag/v0.1.1
 [0.1.0]: https://github.com/postio-uk/postio-go/releases/tag/v0.1.0

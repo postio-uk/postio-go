@@ -78,19 +78,12 @@ Independent SemVer. Stay on `0.x` until the API contract is committed
 stable. Bump to `1.0` only with a real public-API freeze of this SDK
 (not the API spec).
 
-## Spec drift
+## Spec ↔ runtime alignment
 
-Two known gaps with the OpenAPI spec, papered over in `models.go`:
-
-1. **PhoneResult nullable fields**: spec marks every `string|null`
-   field as `required` with `omitempty` excluded; live API drops them
-   entirely on invalid input. Pointer fields plus `omitempty` JSON
-   tags handle the missing case.
-2. **PhoneResult.IsReachable**: spec says `string|null`, live API
-   returns `bool`. Typed as `interface{}` for now — reapply when
-   regenerating against an aligned spec.
-
-Both will go away once postio-api ships a spec/runtime alignment.
+As of postio-api 1.0.3 the OpenAPI spec and runtime are aligned —
+`models.go` is now a clean mirror of the spec. If a future spec change
+re-introduces drift, prefer fixing it at the source (postio-api Zod
+schemas + handlers) over patching downstream.
 
 ## Secrets the CI needs
 

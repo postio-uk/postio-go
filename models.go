@@ -89,30 +89,24 @@ const (
 )
 
 // PhoneResult is the validation verdict for a single phone number.
-//
-// SPEC DRIFT (2026-05-02): the OpenAPI spec marks every nullable field
-// as `required` with type [string, null], but the live API drops them
-// entirely on invalid input. Pointer fields with `omitempty` handle the
-// missing case cleanly. Spec also says IsReachable is string|null but
-// the live API returns bool — interface{} preserves either.
 type PhoneResult struct {
-	Number              string      `json:"number"`
-	IsValid             bool        `json:"isValid"`
-	IsPossible          bool        `json:"isPossible"`
-	Type                *string     `json:"type,omitempty"`
-	CountryCode         *string     `json:"countryCode,omitempty"`
-	CountryName         *string     `json:"countryName,omitempty"`
-	NationalFormat      *string     `json:"nationalFormat,omitempty"`
-	InternationalFormat *string     `json:"internationalFormat,omitempty"`
-	E164Format          *string     `json:"e164Format,omitempty"`
-	OriginalCarrier     *string     `json:"originalCarrier,omitempty"`
-	CurrentCarrier      *string     `json:"currentCarrier,omitempty"`
-	IsPorted            *bool       `json:"isPorted,omitempty"`
-	IsReachable         interface{} `json:"isReachable,omitempty"`
-	MCC                 *string     `json:"mcc,omitempty"`
-	MNC                 *string     `json:"mnc,omitempty"`
-	Level               *string     `json:"level,omitempty"`
-	LookupError         *string     `json:"lookupError,omitempty"`
+	Number              string  `json:"number"`
+	IsValid             bool    `json:"isValid"`
+	IsPossible          bool    `json:"isPossible"`
+	Type                *string `json:"type"`
+	CountryCode         *string `json:"countryCode"`
+	CountryName         *string `json:"countryName"`
+	NationalFormat      *string `json:"nationalFormat"`
+	InternationalFormat *string `json:"internationalFormat"`
+	E164Format          *string `json:"e164Format"`
+	OriginalCarrier     *string `json:"originalCarrier"`
+	CurrentCarrier      *string `json:"currentCarrier"`
+	IsPorted            *bool   `json:"isPorted"`
+	IsReachable         *bool   `json:"isReachable"`
+	MCC                 *string `json:"mcc"`
+	MNC                 *string `json:"mnc"`
+	Level               *string `json:"level"`
+	LookupError         *string `json:"lookupError,omitempty"`
 }
 
 // AddressSearchEnvelope is the response from /address/search.
