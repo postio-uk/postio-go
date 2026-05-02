@@ -1,0 +1,7 @@
+*.test
+*.out
+coverage.txt
+.DS_Store
+.env
+.env.*
+!.env.example
