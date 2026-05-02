@@ -1,8 +1,12 @@
-# postio-go — Claude Code working notes
+# postio-go — development notes
 
-Go SDK for `postio-api`. Mirrors `@postio/core` with idiomatic Go
-ergonomics. Lives in its own repo because Go's module system expects
-the import path to match the repo path (`github.com/postio-uk/postio-go`).
+Go SDK for the [Postio API](https://postio.co.uk). Mirrors `@postio/core`
+(the JS family's runtime client) with idiomatic Go ergonomics. Lives
+in its own repo because Go's module system expects the import path to
+match the repo path (`github.com/postio-uk/postio-go`).
+
+Read [`README.md`](./README.md) for the customer-facing surface; this
+file is the operational guide for contributors and code agents.
 
 ## Stack
 
@@ -52,8 +56,7 @@ go vet ./...
 go build ./...
 go test -race -count=1 ./...
 
-# live tests (requires POSTIO_API_KEY_STAGE in env or umbrella .env)
-set -a && source ../.env && set +a
+# live tests (requires POSTIO_API_KEY_STAGE in env)
 go test -count=1 -tags=live -run TestLive ./...
 
 # pkg.go.dev preview
@@ -93,12 +96,8 @@ Both will go away once postio-api ships a spec/runtime alignment.
 
 | Secret | Used by | Notes |
 |---|---|---|
-| `POSTIO_API_KEY_STAGE` | `ci.yml` (live-test job) | Same value as the postio-python repo. Pair with `stage-api.postio.co.uk` (handled in `client_live_test.go`). |
+| `POSTIO_API_KEY_STAGE` | `ci.yml` (live-test job) | A `pk_*` key against `stage-api.postio.co.uk` (handled in `client_live_test.go`). |
 
 No publish secret. Go modules are pull-based; tagging the repo is the
 publish step.
 
-## Tone for this repo
-
-Same as the umbrella: terse, casual, status-emoji summaries. Customers
-see error messages and godoc — keep those plain English.
