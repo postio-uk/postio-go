@@ -3,7 +3,7 @@
 //
 // Quick start:
 //
-//	client, err := postio.NewClient(postio.WithAPIKey("pk_live_..."))
+//	client, err := postio.NewClient(postio.WithAPIKey("pk_..."))
 //	if err != nil {
 //	    log.Fatal(err)
 //	}

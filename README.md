@@ -4,9 +4,11 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/postio-uk/postio-go)](https://goreportcard.com/report/github.com/postio-uk/postio-go)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Go SDK for the [Postio API](https://postio.co.uk) — UK address, email, and
-phone validation. Backed by Royal Mail PAF and Ordnance Survey.
-Stdlib `net/http` only, zero dependencies.
+Go SDK for [Postio](https://postio.co.uk) — the UK validation API for
+addresses, emails and phone numbers. Stdlib `net/http` only, zero
+dependencies. Backed by Royal Mail PAF and Ordnance Survey.
+
+> **First time?** [Sign up free](https://postio.co.uk) — first 100 lookups on us, no card needed.
 
 ## Install
 
@@ -30,7 +32,7 @@ import (
 )
 
 func main() {
-    client, err := postio.NewClient(postio.WithAPIKey("pk_live_..."))
+    client, err := postio.NewClient(postio.WithAPIKey("pk_..."))
     if err != nil {
         log.Fatal(err)
     }
@@ -97,7 +99,7 @@ the underlying transport error.
 
 ```go
 client, err := postio.NewClient(
-    postio.WithAPIKey("pk_live_..."),
+    postio.WithAPIKey("pk_..."),
     postio.WithBaseURL("https://api.postio.co.uk/v1"),  // default
     postio.WithTimeout(10 * time.Second),                // default
     postio.WithRetries(2),                               // default; 0 to disable
