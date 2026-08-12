@@ -6,6 +6,16 @@ versioning follows [SemVer](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.2] — 2026-08-12
+
+### Removed
+
+- `county` from the address model. It came from ONS administrative geography
+  rather than Royal Mail data, resolved for only part of the country, and is
+  not part of a correct UK postal address — Royal Mail removed postal counties
+  from PAF in December 2000. `district` and `ward` remain, and are ONS
+  administrative geography rather than postal fields.
+
 ## [0.1.1] — 2026-05-02
 
 ### Changed

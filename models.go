@@ -56,7 +56,6 @@ type Address struct {
 	DoubleDependentLocality *string `json:"double_dependent_locality,omitempty"`
 	DeliveryPointSuffix     *string `json:"delivery_point_suffix,omitempty"`
 	Country                 *string `json:"country,omitempty"`
-	County                  *string `json:"county,omitempty"`
 	District                *string `json:"district,omitempty"`
 	Ward                    *string `json:"ward,omitempty"`
 	Latitude                *float64 `json:"latitude,omitempty"`
